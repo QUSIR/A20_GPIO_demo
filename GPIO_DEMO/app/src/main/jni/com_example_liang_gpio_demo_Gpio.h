@@ -9,27 +9,19 @@ extern "C" {
 #endif
 /*
  * Class:     com_example_liang_gpio_demo_Gpio
- * Method:    nativeInit
- * Signature: ()V
+ * Method:    Set_GPIO
+ * Signature: (CII)I
  */
-JNIEXPORT void JNICALL Java_com_example_liang_gpio_1demo_Gpio_nativeInit
-  (JNIEnv *, jclass);
+JNIEXPORT jint JNICALL Java_com_example_liang_gpio_1demo_Gpio_Set_1GPIO
+  (JNIEnv *, jobject, jchar, jint, jint);
 
 /*
  * Class:     com_example_liang_gpio_demo_Gpio
- * Method:    nativeWriteGpio
- * Signature: (Ljava/lang/String;Ljava/lang/String;)I
+ * Method:    Get_GPIO
+ * Signature: (CII)I
  */
-JNIEXPORT jint JNICALL Java_com_example_liang_gpio_1demo_Gpio_nativeWriteGpio
-  (JNIEnv *, jclass, jstring, jstring);
-
-/*
- * Class:     com_example_liang_gpio_demo_Gpio
- * Method:    nativeReadGpio
- * Signature: (Ljava/lang/String;)I
- */
-JNIEXPORT jint JNICALL Java_com_example_liang_gpio_1demo_Gpio_nativeReadGpio
-  (JNIEnv *, jclass, jstring);
+JNIEXPORT jint JNICALL Java_com_example_liang_gpio_1demo_Gpio_Get_1GPIO
+  (JNIEnv *, jobject, jchar, jint, jint);
 
 #ifdef __cplusplus
 }

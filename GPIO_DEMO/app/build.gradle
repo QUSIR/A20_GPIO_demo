@@ -14,7 +14,7 @@ model{
         }
         ndk {
             moduleName="gpio_jni"
-            ldLibs.addAll(['android', 'log'])
+            ldLibs.addAll(['log'])
         }
         buildTypes {
             release {

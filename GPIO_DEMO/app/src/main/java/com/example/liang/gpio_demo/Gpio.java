@@ -30,8 +30,9 @@ public class Gpio
 
 	}
 
-    public native int Set_GPIO(char name,int number,int val);
-    public native int Get_GPIO(char name,int number,int val);
+    public native int Init_GPIO(String name,int val);
+    public native int Set_GPIO(String name,int number,int val);
+    public native int Get_GPIO(String name,int number,int val);
 
 }
 

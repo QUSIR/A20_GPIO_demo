@@ -27,6 +27,7 @@ public class Gpio
     // can't instantiate this class
 	static {
 		System.loadLibrary("gpio_jni");
+       // System.loadLibrary("libstlport_shared");
 
 	}
 

@@ -12,6 +12,6 @@ GPIO_DEMO程序例子里面有两种操作GPIO的方法
 
 2.调用官方提供的库
 	
-[](/gpio.png)
+[gpio](/gpio.png)
 
 	A20-gpio 调用 gpio_lib

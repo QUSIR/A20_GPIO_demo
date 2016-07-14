@@ -20,17 +20,19 @@ extern "C" {
 #include "gpio_lib.h"
 }
 
+
+#include"Logger.h"
 #include <unistd.h>
 namespace A20 {
     // Initialize the static list of objects in GPIO class
-    std::vector<GPIO_common*> GPIO::registered;
+    std::vector<GPIO_common*> GPIO::registered;f
 
     /* ************************************************************* */
     /* ********************** GPIO Class *************************** */
     /* ************************************************************* */
     void GPIO::init()  {
         if(sunxi_gpio_init() < 0) {
-           // throw new GPIO_exception("unable to init sunxi");
+            LOGD("unable to init sunxi %s\n", "error");
         }
     }
 
@@ -44,8 +46,8 @@ namespace A20 {
                     // Ok, already registered has input
                     return (GPIO_input*)(*it);
                 } else {
+                    LOGD("trying to read a port setted as output or periphery! %s\n", "error");
                     // Oh no, already registered as other type!
-                  //  throw new GPIO_exception("trying to read a port setted as output or periphery!");
                 }
             }
         }
@@ -67,7 +69,7 @@ namespace A20 {
                     return (GPIO_output*)(*it);
                 } else {
                     // Oh no, already registered as other type!
-                   // throw new GPIO_exception("trying to set a port as output but it's already setted as input or periphery!");
+                    LOGD("trying to set a port as output but it's already setted as input or periphery! %s\n", "error");
                 }
             }
         }
@@ -88,7 +90,7 @@ namespace A20 {
                     return;
                 } else {
                     // Oh no, already registered as other type!
-                  //  throw new GPIO_exception("trying to set a port as periphery but it's already setted as input or output!");
+                    LOGD("trying to set a port as periphery but it's already setted as input or output! %s\n", "error");
                 }
             }
         }
@@ -107,7 +109,7 @@ namespace A20 {
             }
         }
         // I cannot find the pin in registered pins.
-       // throw new GPIO_exception("unable to free a non previously requested gpio");
+        LOGD("unable to free a non previously requested gpio %s\n", "error");
     }
 
     /* ************************************************************* */
@@ -119,11 +121,11 @@ namespace A20 {
         int ret;
         ret = sunxi_gpio_set_cfgpin(port, 0);    // as input
         if (ret < 0)
-          //  throw new GPIO_exception("unable to config gpio");
+            LOGD("unable to config gpio %s\n", "error");
 
         ret = sunxi_gpio_pullup(port, pull_resistor);
         if (ret < 0)
-           // throw new GPIO_exception("unable to set pull resistor");
+            LOGD("unable to set pull resistor %s\n", "error");
 
 #ifndef GPIO_NO_WAIT
         usleep(100);
@@ -135,7 +137,7 @@ namespace A20 {
 
         ret = sunxi_gpio_input(port);
         if (ret < 0)
-           // throw new GPIO_exception("unable to read gpio");
+            LOGD("unable to read gpio %s\n", "error");
         return (bool)ret;
     }
 
@@ -148,7 +150,7 @@ namespace A20 {
         int ret;
         ret = sunxi_gpio_set_cfgpin(port, 1);    // as output
         if (ret < 0)
-           // throw new GPIO_exception("unable to config gpio");
+            LOGD("unable to config gpio %s\n", "error");
 #ifndef GPIO_NO_WAIT
         usleep(100);
 #endif
@@ -162,7 +164,7 @@ namespace A20 {
         if (ret < 0){
 
         }
-          //  throw new GPIO_exception("unable to write gpio");
+        LOGD("unable to init sunxi %s\n", "error");
     }
 
     GPIO_output::~GPIO_output() {
@@ -180,7 +182,7 @@ namespace A20 {
         int ret;
         ret = sunxi_gpio_set_cfgpin(port, 2);    // as per
         if (ret < 0)
-          //  throw new GPIO_exception("unable to config gpio");
+            LOGD("unable to init sunxi %s\n", "error");
 #ifndef GPIO_NO_WAIT
         usleep(100);
 #endif

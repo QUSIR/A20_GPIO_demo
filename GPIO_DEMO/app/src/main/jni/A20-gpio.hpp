@@ -50,13 +50,7 @@ namespace A20 {
 
     class GPIO;
     
-    /*!
-     * \brief A generic exception for all module.
-     */
-    /*class GPIO_exception (std::string s){//: public std::runtime_error {
-        public:
-           // GPIO_exception(std::string s) : runtime_error(std::string("GPIO exception: ")+s) {};
-    };*/
+
 
     /*!
      * \brief An abstract class for GPIO_input and GPIO_output. Probably, you 

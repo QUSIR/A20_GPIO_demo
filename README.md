@@ -11,7 +11,7 @@ GPIO_DEMO程序例子里面有两种操作GPIO的方法
 	修改对应GPIO目录下的cfg实现输入输出控制
 
 2.调用官方提供的库
-	
-[](gpio.png)
+
+![](/png/gpio.png)
 
 	A20-gpio 调用 gpio_lib

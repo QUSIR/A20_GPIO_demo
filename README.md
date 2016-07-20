@@ -10,7 +10,7 @@ GPIO_DEMO程序例子里面有两种操作GPIO的方法
 
 	修改对应GPIO目录下的cfg实现输入输出控制
 
-2.调用官方提供的库
+2.调用官方提供的库(经测试在android系统先不可行，在linux系统下无法测试)
 
 ![gpio](/png/gpio.png)
 
